@@ -29,7 +29,7 @@
     <meta name="description" content="Premium Quality and Responsive UI for Dashboard.">
     <meta name="author" content="ThemePixels">
 
-    <title>Bracket Responsive Bootstrap 4 Admin Template</title>
+    <title></title>
 
     <!-- vendor css -->
     <link href="{{asset('/lib/font-awesome/css/font-awesome.css')}}" rel="stylesheet">
