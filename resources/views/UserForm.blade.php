@@ -7,8 +7,8 @@
         <div class="container">
             <div class="row justify-content-center">
                 <!-- <div class="col-md-6 order-md-2">
-                          <img src="images/undraw_file_sync_ot38.svg" alt="Image" class="img-fluid">
-                        </div> -->
+                              <img src="images/undraw_file_sync_ot38.svg" alt="Image" class="img-fluid">
+                            </div> -->
                 <div class="col-md-12 contents">
                     <div class="row justify-content-center">
                         <div class="col-md-10">
@@ -17,11 +17,12 @@
                                     <div class="col-12" style="border: 2px solid black; padding:0px;">
 
 
-                                        <h5 style="    background: #80808061;    font-weight: bold;"> &nbsp; Section 1 - Customer
+                                        <h5 style="    background: #80808061;    font-weight: bold;"> &nbsp; Section 1 -
+                                            Customer
                                             Details</h5>
                                         <div class="row">
                                             <div class="col-lg-8  col-md-8  ">
-                                            &nbsp;    <label for="">Full Name </label> <br>
+                                                &nbsp; <label for="">Full Name </label> <br>
                                                 <input class="" style="    width: 87%;" type="text" name=""
                                                     id="">
 
@@ -36,7 +37,7 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-12" style="    margin-top: 9px;">
-                                             &nbsp;   <label for=""> Residential address PO Box is not acceptable
+                                                &nbsp; <label for=""> Residential address PO Box is not acceptable
                                                 </label>
                                                 <br>
                                                 <input type="text" style="width: 100%;" name="" id="">
@@ -67,10 +68,12 @@
 
                                     </div>
 
-                                    <div class="col-12" style="border: 2px solid black; padding:0px;    margin-top: 2px;">
+                                    <div class="col-12"
+                                        style="border: 2px solid black; padding:0px;    margin-top: 2px;">
 
 
-                                        <h5 style="    background: #80808061;    font-weight: bold;"> &nbsp; Section 2 - Source Of
+                                        <h5 style="    background: #80808061;    font-weight: bold;"> &nbsp; Section 2 -
+                                            Source Of
                                             Funds</h5>
                                         <div style="    padding: 8px;    background: #80808014;margin-top: -8px;">
                                             Please indicate the main source of funds. You may choose more than one option if
@@ -88,10 +91,12 @@
 
                                     </div>
 
-                                    <div class="col-12" style="border: 2px solid black; padding:0px;    margin-top: 2px;">
+                                    <div class="col-12"
+                                        style="border: 2px solid black; padding:0px;    margin-top: 2px;">
 
 
-                                        <h5 style="    background: #80808061;    font-weight: bold;"> &nbsp;     Section 3 - Source Of
+                                        <h5 style="    background: #80808061;    font-weight: bold;"> &nbsp; Section 3 -
+                                            Source Of
                                             Wealth</h5>
                                         <div style="    padding: 8px;    background: #80808014;margin-top: -8px;">
                                             Please indicate the main source of Wealth. You may choose more than one option
@@ -102,30 +107,32 @@
                                             Assets, Owns real estate/property, Redundancy, Rental Income, Sale of Assets,
                                             Superannuation/pension, Windfall
                                         </div>
-                                     &nbsp;   <label for="">Please Provide Further Details:</label>
+                                        &nbsp; <label for="">Please Provide Further Details:</label>
                                         <input type="text" style="width:100%" name="" id="">
 
 
 
                                     </div>
 
-                                    <div class="col-12" style="border: 2px solid black; padding:0px;    margin-top: 2px;">
+                                    <div class="col-12"
+                                        style="border: 2px solid black; padding:0px;    margin-top: 2px;">
 
 
-                                        <h5 style="    background: #80808061;    font-weight: bold;"> &nbsp; Section 4 - Declaration</h5>
+                                        <h5 style="    background: #80808061;    font-weight: bold;"> &nbsp; Section 4 -
+                                            Declaration</h5>
                                         <div style="    padding: 8px;    background: #80808014;margin-top: -8px;">
                                             I declare that the information on this form is correct
                                         </div>
                                         <div class="row">
-<div class="col-6">
-&nbsp;<label>Signature</label>
-<br>
-<input style="width:100%" type="text" name="" id="">
-</div>
-<div class="col-6">
-<label for=""> Date</label> <br>
-<input type="text" style="width:100%" name="" id="">
-</div>
+                                            <div class="col-6">
+                                                &nbsp;<label>Signature</label>
+                                                <br>
+                                                <input style="width:100%" type="text" name="" id="">
+                                            </div>
+                                            <div class="col-6">
+                                                <label for=""> Date</label> <br>
+                                                <input type="text" style="width:100%" name="" id="">
+                                            </div>
 
                                         </div>
 
