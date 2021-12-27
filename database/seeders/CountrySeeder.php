@@ -5,16 +5,15 @@ namespace Database\Seeders;
 use App\Models\Country;
 use Illuminate\Database\Seeder;
 
-class DatabaseSeeder extends Seeder
+class CountrySeeder extends Seeder
 {
     /**
-     * Seed the application's database.
+     * Run the database seeds.
      *
      * @return void
      */
     public function run()
     {
-
         Country::truncate();
 
         $countries = [

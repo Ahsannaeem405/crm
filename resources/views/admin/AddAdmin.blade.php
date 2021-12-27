@@ -12,6 +12,11 @@
     <!-- ########## END: HEAD PANEL ########## -->
 
     <!-- ########## START: RIGHT PANEL ########## -->
+
+    <?php
+     $countries = App\Models\Country::all();
+
+    ?>
     <div class="br-sideright">
       <ul class="nav nav-tabs sidebar-tabs" role="tablist">
         <li class="nav-item">
@@ -423,36 +428,34 @@
               <div class="col-lg-6">
                 <div class="form-group">
                   <label class="form-control-label">Firstname: <span class="tx-danger">*</span></label>
-                  <input class="form-control" type="text" name="firstname" value="John Paul" placeholder="Enter firstname">
+                  <input class="form-control" type="text" name="firstname"  required placeholder="Enter Firstname">
                 </div>
               </div><!-- col-4 -->
               <div class="col-lg-6">
                 <div class="form-group">
                   <label class="form-control-label">Lastname: <span class="tx-danger">*</span></label>
-                  <input class="form-control" type="text" name="lastname" value="McDoe" placeholder="Enter lastname">
+                  <input class="form-control" type="text" name="lastname" value="" required placeholder="Enter Lastname">
                 </div>
               </div><!-- col-4 -->
               <div class="col-lg-6">
                 <div class="form-group">
                   <label class="form-control-label">Email address: <span class="tx-danger">*</span></label>
-                  <input class="form-control" type="text" name="email" value="johnpaul@yourdomain.com" placeholder="Enter email address">
+                  <input class="form-control" type="text" name="email" value="" required placeholder="Enter Email Address">
                 </div>
               </div><!-- col-4 -->
               <div class="col-lg-6">
                 <div class="form-group mg-b-10-force">
                   <label class="form-control-label">Mail Address: <span class="tx-danger">*</span></label>
-                  <input class="form-control" type="text" name="address" value="Market St. San Francisco" placeholder="Enter address">
+                  <input class="form-control" type="text" name="address" value="" required placeholder="Enter Address">
                 </div>
               </div><!-- col-8 -->
               <div class="col-lg-6">
                 <div class="form-group mg-b-10-force">
                   <label class="form-control-label">Country: <span class="tx-danger">*</span></label>
-                  <select class="form-control select2" data-placeholder="Choose country">
-                    <option label="Choose country"></option>
-                    <option value="USA">United States of America</option>
-                    <option value="UK">United Kingdom</option>
-                    <option value="China">China</option>
-                    <option value="Japan">Japan</option>
+                  <select class="form-control select2" required data-placeholder="Choose country">
+                    @foreach ($countries as $country)
+                    <option value="{{$country->id}}">{{$country->name}} - {{$country->code}}</option>
+                @endforeach
                   </select>
                 </div>
               </div><!-- col-4 -->
