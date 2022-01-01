@@ -3,7 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Admin;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use PDF;
+
 
 class AdminController extends Controller
 {
@@ -14,17 +19,41 @@ class AdminController extends Controller
      */
     public function index()
     {
-        //
+
     }
+
+    public function viewDocument()
+    {
+        return view('viewDocument');
+
+    }
+
 
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $admin  = new User();
+        $admin->firstname = $request->firstname;
+        $admin->lastname = $request->lastname;
+
+        $admin->email = $request->email;
+
+        $admin->address = $request->address;
+
+        $admin->role = 'admin';
+
+        $admin->country = $request->country;
+        $admin->password = Hash::make($request->password);
+
+
+
+        $admin->save();
+        return back()->with('success', 'Added Successfully');
+
     }
 
     /**
@@ -55,9 +84,12 @@ class AdminController extends Controller
      * @param  \App\Models\Admin  $admin
      * @return \Illuminate\Http\Response
      */
-    public function edit(Admin $admin)
+    public function edit(Admin $admin , $id)
     {
-        //
+        $adm = User::find($id);
+        return view('admin.edit' , compact('adm') );
+
+
     }
 
     /**
@@ -69,7 +101,56 @@ class AdminController extends Controller
      */
     public function update(Request $request, Admin $admin)
     {
-        //
+        $admin = User::find($request->id);
+        $admin->firstname = $request->firstname;
+        $admin->lastname = $request->lastname;
+
+        $admin->email = $request->email;
+
+        $admin->address = $request->address;
+
+        $admin->country = $request->country;
+
+        $admin->update();
+        return back()->with('success', 'Updated Successfully');
+
+
+    }
+
+    public function generatePDF($id)
+    {
+        $user =User::find($id);
+
+        $data = [
+            'fullname' =>  $user->fullname,
+            'dob' =>  $user->dob,
+            'Residential' =>  $user->Residential,
+            'detail' =>  $user->detail,
+            'further_detail' =>  $user->further_detail,
+            'signature' =>  $user->signature,
+            'signature_date' =>  $user->signature_date,
+
+
+        ];
+
+        $pdf = PDF::loadView('myFile', $data);
+        // dd($pdf);
+
+        return $pdf->download('myDocument.pdf');
+    }
+    public function form_save(Request $request)
+    {
+        $user = User::find(Auth::user()->id);
+        $user->fullname = $request->fullname;
+        $user->dob = $request->dob;
+        $user->Residential = $request->Residential;
+        $user->detail = $request->detail;
+        $user->signature = $request->signature;
+        $user->further_detail = $request->further_detail;
+        $user->signature_date = $request->signature_date;
+        $user->save();
+        return redirect('/admin');
+
     }
 
     /**
@@ -78,8 +159,12 @@ class AdminController extends Controller
      * @param  \App\Models\Admin  $admin
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Admin $admin)
+    public function destroy(Admin $admin, $id)
     {
+
+        User::find($id)->delete();
+        return back()->with('success', 'Delete Successfully');
+
         //
     }
 }

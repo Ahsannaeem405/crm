@@ -7,6 +7,7 @@ use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
@@ -29,7 +30,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = '/User/Form';
 
     /**
      * Create a new controller instance.
@@ -64,10 +65,38 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        // dd($data);
+
+        // $fields=array(
+    //         "country"=> "AUS",
+    //         "firstName"=> $data['name'],
+    //         "middleName"=> "ok",
+    //         "lastName"=> "Citizen",
+    //         "gender"=> "user",
+    //         "dateOfBirth"=> "20/10/1980",
+    //         "address"=> $data['address'],
+    //         "email"=> $data['email']
+
+    //     );
+    //     $get=Http::post('https://dev.bronid.com/idform',[
+    //         "metadata_serviceUid"=> "XL7ULiU6B4QE9Y2iWFZnhtMDKFN2",
+    //         "metadata_secretKey"=> "api_sec_NJAtNcRtUrPlf7xYDrMNP9URI-ZfN314",
+    //         "metadata_version"=> "4",
+    //         "metadata_userId"=> "yourUniqueUserId",
+    //         "bronLink_dataAccessType"=> "idForm",
+    //         "type"=> "individual",
+    //         'fields'=>$fields,
+
+    //     ]);
+    //    $res=json_decode($get->body());
+    //  dd(  $res);
+
+
         return User::create([
-            'name' => $data['name'],
+            'firstname' => $data['name'],
             'email' => $data['email'],
+            'role' => 'user',
+
+            'address' => $data['address'],
             'password' => Hash::make($data['password']),
         ]);
     }

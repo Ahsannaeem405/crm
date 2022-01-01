@@ -16,6 +16,16 @@
     <!-- Style -->
     <link rel="stylesheet" href="{{asset('/assets/css/style.css')}}">
 
+
+
+    {{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" /> --}}
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Google Maps JavaScript library -->
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyBDbX4wlNnjUXFCQhPEFf7_UNsn8WIiDNU"></script>
+
+
+
     <title>Login</title>
   </head>
   <body style="background-color: #582b74">

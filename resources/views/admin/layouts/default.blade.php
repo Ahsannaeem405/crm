@@ -46,11 +46,15 @@
 
     <!-- Bracket CSS -->
     <link rel="stylesheet" href="{{asset('/css/bracket.css')}}">
+
+
+
   </head>
 
   <body>
 
 @yield('content')
+
 
 <script src="{{asset('/lib/highlightjs/highlight.pack.js')}}"></script>
 <script src="{{asset('/lib/datatables/jquery.dataTables.js')}}"></script>

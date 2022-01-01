@@ -2,7 +2,10 @@
 @section('content')
 
 
+<?php
+$countries = App\Models\Country::all();
 
+?>
   <div class="content">
     <div class="container">
       <div class="row justify-content-center">
@@ -49,8 +52,15 @@
                   </div>
 
                   <div class="form-group last mb-4" style="margin-bottom: 22px;">
+                    <label for="password">Address</label>
+                    <input type="text" class="form-control" name="address" placeholder=""   required autocomplete="address" id="address">
+
+                  </div>
+
+
+                  <div class="form-group last mb-4" style="margin-bottom: 22px;">
                     <label for="password">Password</label>
-                    <input type="password" class="form-control @error('password') is-invalid @enderror" id="password"  name="password" required autocomplete="new-password">
+                    <input type="password" class="form-control @error('password') is-invalid @enderror" id="password"  name="password"  required autocomplete="new-password">
 
                     {{-- <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password"> --}}
 
@@ -102,5 +112,22 @@
     </div>
   </div>
 
+
+  <script>
+    var searchInput = 'address'; 
+    $(document).ready(function () {
+     var autocomplete;
+     autocomplete = new google.maps.places.Autocomplete((document.getElementById(searchInput)), {
+      types: ['geocode'],
+      /*componentRestrictions: {
+       country: "USA"
+      }*/
+     });
+      
+     google.maps.event.addListener(autocomplete, 'place_changed', function () {
+      var near_place = autocomplete.getPlace();
+     });
+    });
+    </script>
 
   @endsection

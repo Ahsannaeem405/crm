@@ -1,6 +1,14 @@
-<div class="br-logo"><a href=""><span>[</span>Admin<span>]</span></a></div>
+@if(Auth::user()->role != 'user')
+<div class="br-logo"><a href=""><span>[</span>{{Auth::user()->firstname}}<span>]</span></a></div>
+
+@else
+<div class="br-logo"><a href=""><span>[</span>{{Auth::user()->firstname}}<span>]</span></a></div>
+
+@endif
 
   <div class="br-sideleft overflow-y-auto">
+
+    @if(Auth::user()->role != 'user')
 <div class="br-sideleft-menu" style="    margin-top: 15px;">
     <a href="{{url('/admin')}}" class="br-menu-link active">
       <div class="br-menu-item">
@@ -40,5 +48,17 @@
   <br>
 </div><!-- br-sideleft -->
 <br>
+
+@else
+
+<a href="{{url('/admin/viewDocument')}}" class="br-menu-link active">
+    <div class="br-menu-item" style="margin-top: 5px;">
+      <i class="menu-item-icon icon ion-ios-email-outline tx-24"></i>
+      <span class="menu-item-label">View Document   </span>
+    </div><!-- menu-item -->
+  </a><!-- br-menu-link -->
+
+
+@endif
 </div><!-- br-sideleft -->
 

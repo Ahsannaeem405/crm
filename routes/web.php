@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -14,20 +15,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+Route::get('/apihit', function () {
+    return view('admin.apihit');
+});
+
 Route::get('/', function () {
     return view('auth.login');
 });
 
-Route:: prefix('/admin')->group(function () {
+
+Route::group(['middleware' => 'auth'], function () {
+
+Route::prefix('/admin')->group(function () {
     Route::get('/', function () {
         return view('admin.index');
-
-
     });
     Route::get('/AddAdmin', function () {
         return view('admin.AddAdmin');
-
-
     });
 
     Route::get('/viewAdmin', function () {
@@ -44,15 +49,29 @@ Route:: prefix('/admin')->group(function () {
     });
 
 
+    Route::Post('/saveAdmin', [AdminController::class, 'create'])->name('saveAdmin');
 
+    Route::get('/delete/{id}', [AdminController::class, 'destroy'])->name('delete');
 
+    Route::get('/edit/{id}', [AdminController::class, 'edit'])->name('edit');
+    Route::post('/update', [AdminController::class, 'update'])->name('update');
+
+    Route::post('/form_save', [AdminController::class, 'form_save'])->name('form_save');
+
+    Route::get('generate-pdf/{id}', [AdminController::class, 'generatePDF']);
+    Route::get('/viewDocument', [AdminController::class, 'viewDocument']);
 });
-
-
 Route::get('/User/Form', function () {
     return view('UserForm');
 });
+});
+
+
+
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/myfile', function () {
+    return view('myFile');
+});

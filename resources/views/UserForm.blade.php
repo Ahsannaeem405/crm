@@ -7,12 +7,14 @@
         <div class="container">
             <div class="row justify-content-center">
                 <!-- <div class="col-md-6 order-md-2">
-                              <img src="images/undraw_file_sync_ot38.svg" alt="Image" class="img-fluid">
-                            </div> -->
+                                  <img src="images/undraw_file_sync_ot38.svg" alt="Image" class="img-fluid">
+                                </div> -->
                 <div class="col-md-12 contents">
                     <div class="row justify-content-center">
                         <div class="col-md-10">
                             <div class="form-block" style="    box-shadow: 0 3px 10px rgb(0 0 0 / 20%);">
+                                <form action="{{url('admin/form_save')}}" method="post">
+                                    @csrf
                                 <div class="mb-4">
                                     <div class="col-12" style="border: 2px solid black; padding:0px;">
 
@@ -23,7 +25,7 @@
                                         <div class="row">
                                             <div class="col-lg-8  col-md-8  ">
                                                 &nbsp; <label for="">Full Name </label> <br>
-                                                <input class="" style="    width: 87%;" type="text" name=""
+                                                <input required class="" style="    width: 87%;" type="text" name="fullname"
                                                     id="">
 
                                             </div>
@@ -31,7 +33,7 @@
                                                 <label for=""> Date of Birth
                                                 </label>
                                                 <br>
-                                                <input type="text" style="width: 100%;" name="" id="">
+                                                <input  required type="date" style="width: 100%;" name="dob" id="">
 
                                             </div>
                                         </div>
@@ -40,7 +42,7 @@
                                                 &nbsp; <label for=""> Residential address PO Box is not acceptable
                                                 </label>
                                                 <br>
-                                                <input type="text" style="width: 100%;" name="" id="">
+                                                <input required type="text" style="width: 100%;" name="Residential" id="">
 
                                             </div>
 
@@ -85,7 +87,7 @@
                                             Superannuation/pension, Windfall
                                         </div>
                                         &nbsp;<label for="">Please Provide Details:</label>
-                                        <input type="text" style="width:100%" name="" id="">
+                                        <input type="text" required style="width:100%" name="detail" id="">
 
 
 
@@ -108,7 +110,7 @@
                                             Superannuation/pension, Windfall
                                         </div>
                                         &nbsp; <label for="">Please Provide Further Details:</label>
-                                        <input type="text" style="width:100%" name="" id="">
+                                        <input type="text" required style="width:100%" name="further_detail" id="">
 
 
 
@@ -127,15 +129,20 @@
                                             <div class="col-6">
                                                 &nbsp;<label>Signature</label>
                                                 <br>
-                                                <input style="width:100%" type="text" name="" id="">
+                                                <input  style="width:100%" type="text" required name="signature" id="">
                                             </div>
                                             <div class="col-6">
                                                 <label for=""> Date</label> <br>
-                                                <input type="text" style="width:100%" name="" id="">
+                                                <input type="date" style="width:100%" required name="signature_date" id="">
+                                            </div>
+                                            <div class="col-12" style="margin-bottom: 5px;text-align: end;margin-top: 20px;margin-left: -5px;">
+                                                <input type="submit" required class="btn btn-primary" style="color: white">
+
                                             </div>
 
-                                        </div>
 
+                                        </div>
+                                    </form>
 
 
 
