@@ -34,6 +34,10 @@ class User extends Authenticatable
         'signature_date',
         'statuss',
         'apiUrl',
+        'postcode',
+        'state',
+
+
 
     ];
 

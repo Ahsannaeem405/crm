@@ -9,7 +9,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Http;
 use PDF;
-
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Cookie;
 
 class AdminController extends Controller
 {
@@ -49,10 +50,10 @@ class AdminController extends Controller
 
         $admin->country = $request->country;
         $admin->password = Hash::make($request->password);
-
-
-
         $admin->save();
+
+        Cookie::make('check', 'value', 120);
+
         return back()->with('success', 'Added Successfully');
 
     }
@@ -118,6 +119,9 @@ class AdminController extends Controller
 
     }
 
+
+
+
     public function generatePDF($id)
     {
         $user =User::find($id);
@@ -141,6 +145,8 @@ class AdminController extends Controller
     }
     public function form_save(Request $request)
     {
+
+
         $user = User::find(Auth::user()->id);
         $user->fullname = $request->fullname;
         $user->dob = $request->dob;
@@ -151,14 +157,20 @@ class AdminController extends Controller
         $user->signature_date = $request->signature_date;
         $user->statuss = $request->statuss;
         $user->apiUrl = $request->apiUrl;
+        $user->state = $request->state;
+        $user->postcode = $request->postcode;
 
 
+        // $hd = Cache::store('file')->get('foo');
+
+        // dd( $hd);
 
         $user->save();
 
+        // Cookie::make('check', 'value', 120);
+        // Cookie::queue('check', 'value');
 
-
-
+        setcookie('check', 'value', time() + (86400 * 30), "/");
         return redirect('user/viewDocument');
 
     }

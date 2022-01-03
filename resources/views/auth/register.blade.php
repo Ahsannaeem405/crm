@@ -68,7 +68,19 @@
 
                                             </div>
                                         </div>
+
                                         <div class="col-6" style="padding-right: 0px;">
+
+                                            <div class="form-group first" style="margin-bottom: 22px;">
+                                                <label for="username">Lastname</label>
+                                                <input type="text" class="form-control @error('name') is-invalid @enderror"
+                                                    id="name" placeholder="Lastname" name="lastname" value="{{ old('name') }}"
+                                                    required autocomplete="name" autofocus>
+
+
+                                            </div>
+                                        </div>
+                                        <div class="col-6" style="padding-left: 0px;">
                                             <div class="form-group last mb-4" style="margin-bottom: 22px;">
                                                 <label for="password">Email</label>
                                                 <input type="email"
@@ -86,7 +98,7 @@
 
                                             </div>
                                         </div>
-                                        <div class="col-6" style="padding-left: 0px;">
+                                        <div class="col-6" style="padding-right: 0px;">
                                         <div class="form-group last mb-4" style="margin-bottom: 22px;">
                                             <label for="password">Address</label>
                                             <input type="text" class="form-control" name="address" placeholder="Address"
@@ -94,6 +106,22 @@
 
                                         </div>
                                     </div>
+
+                                    <div class="col-6" style="padding-left: 0px;">
+                                        <div class="form-group last mb-4" style="margin-bottom: 22px;">
+                                            <label class="form-control-label">Country </label>
+
+                                            <select class="form-control select2" name="country" required
+                                            data-placeholder="Choose country">
+                                            @foreach ($countries as $country)
+                                                <option value="{{ $country->id }}">{{ $country->name }} -
+                                                    {{ $country->code }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                        </div>
+                                    </div>
+
                                     <div class="col-6" style="padding-right: 0px;">
 
                                         <div class="form-group last mb-4" style="margin-bottom: 22px;">

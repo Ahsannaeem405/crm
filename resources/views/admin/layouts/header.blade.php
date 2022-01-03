@@ -15,8 +15,12 @@
           </a>
           <div class="dropdown-menu dropdown-menu-header wd-200">
             <ul class="list-unstyled user-profile-nav">
-              <li><a href="{{url('/admin/edit_profile')}}"><i class="icon ion-ios-person"></i> Edit Profile</a></li>
+                @if(Auth::user()->role == 'user')
+                <li><a href="{{url('/user/edit_profile')}}"><i class="icon ion-ios-person"></i> Edit Profile</a></li>
 
+                @else
+              <li><a href="{{url('/admin/edit_profile')}}"><i class="icon ion-ios-person"></i> Edit Profile</a></li>
+@endif
               <li>
                 <a class="dropdown-item" href="{{ route('logout') }}"
                 onclick="event.preventDefault();

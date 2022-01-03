@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,8 +21,30 @@ Route::get('/apihit', function () {
     return view('admin.apihit');
 });
 
+
+
 Route::get('/', function () {
-    return view('auth.login');
+    // if (Auth::check()) {
+
+
+
+        if(isset($_COOKIE['check'])) {
+
+            return view('auth.login');
+        }
+        else
+        {
+            return view('auth.register');
+        }
+
+
+
+    // }
+    // else
+    // {
+        //  return view('auth.register');
+
+    // }
 });
 
 
@@ -67,9 +90,14 @@ Route::prefix('/admin')->group(function () {
 
 Route::prefix('/user')->group(function () {
 
+
+    Route::get('/edit_profile', function () {
+        return view('admin.edit_profile');
+    });
+
     Route::get('/viewDocument', [AdminController::class, 'viewDocument']);
 
-    Route::get('/User/Form', function () {
+    Route::get('/user/form', function () {
         return view('UserForm');
     });
     });

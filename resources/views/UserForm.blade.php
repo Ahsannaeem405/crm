@@ -89,13 +89,20 @@
 
 
                                                 </div>
-                                                <div class="col-3" style="    margin-top: 9px;">
-                                                    <P style="color: black;     font-weight: 500;">State</P>
+                                                <div class="col-2" style="    margin-top: 9px;">
+                                                    <P style="color: black;     font-weight: 500;">
+                                                            <input type="text" required style="width: 100%;    border: none;" placeholder="State" name="state" id="">
+
+
+                                                    </P>
 
 
                                                 </div>
-                                                <div class="col-3" style="    margin-top: 9px;">
-                                                    <P style="color: black;     font-weight: 500;">Postcode</P>
+                                                <div class="col-2" style="    margin-top: 9px;">
+                                                    <P style="color: black;     font-weight: 500;">
+                                                        <input type="text" required style="width: 100%;    border: none;" placeholder="Postcode" name="postcode" id="">
+
+                                                        </P>
 
 
                                                 </div>

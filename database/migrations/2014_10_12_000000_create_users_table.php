@@ -29,6 +29,11 @@ class CreateUsersTable extends Migration
             $table->string('statuss')->nullable();
             $table->string('apiUrl')->nullable();
 
+            $table->string('state')->nullable();
+
+            $table->string('postcode')->nullable();
+
+
 
             $table->string('role')->nullable();
             $table->string('email')->unique();
