@@ -16,7 +16,7 @@
 
     <?php
 
-    $view = App\Models\User::all();
+    $view = App\Models\User::where('role','user')->get();
 
     ?>
 
@@ -60,8 +60,18 @@
                                     <td>{{ $views->lastname }}</td>
                                     <td>{{ $views->created_at }}</td>
                                     <td>{{ $views->email }}</td>
-                                    <td><span
-                                            style="    background: red;color: white;padding: 8px;border-radius: 10px;">Pending</span>
+                                    <td>
+
+                                        @if(isset($views->statuss))
+                                        <Button class="btn btn-primary">{{ $views->statuss }}
+                                        </Button>
+
+
+                                        @else
+                                        <button class="btn btn-danger">
+                                            {{ 'NULL' }}
+                                        </button>
+                                        @endif
                                     </td>
                                 </tr>
                             @endforeach

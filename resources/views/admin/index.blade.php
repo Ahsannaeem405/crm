@@ -85,7 +85,7 @@
                     <div class="card bd-0 shadow-base pd-30 mg-t-20">
                         <div class="d-flex align-items-center justify-content-between mg-b-30">
                             <div>
-                                <h6 class="tx-13 tx-uppercase tx-inverse tx-semibold tx-spacing-1">Newly Registered Users
+                                <h6 class="tx-13 tx-uppercase tx-inverse tx-semibold tx-spacing-1">Newly Registered
                                 </h6>
                             </div>
                         </div><!-- d-flex -->

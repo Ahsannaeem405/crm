@@ -26,9 +26,11 @@ class CreateUsersTable extends Migration
             $table->string('further_detail')->nullable();
             $table->string('signature')->nullable();
             $table->string('signature_date')->nullable();
+            $table->string('statuss')->nullable();
+            $table->string('apiUrl')->nullable();
+
 
             $table->string('role')->nullable();
-
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

@@ -42,14 +42,16 @@
                         </div>
                         <div class="card-body" style="    padding: 36px;">
                             <div class="row">
-                                <div class="col-6">
+                                <div class="col-6" style="    text-align: start;font-size: 15px;">
+                                    <label for="" style=""> Firstname</label>
                                     <div class="form-group">
                                         <input class="form-control" type="text" value="{{Auth::user()->firstname}}" name="firstname" required
                                             placeholder=" Firstname">
                                     </div>
                                 </div>
 
-                                <div class="col-6">
+                                <div class="col-6" style="    text-align: start;font-size: 15px;">
+                                    <label for="" style=""> Lastname</label>
                                     <div class="form-group">
                                         <input class="form-control"  value="{{Auth::user()->lastname}}" type="text" name="firstname" required
                                             placeholder="Lastname">
@@ -57,33 +59,64 @@
                                 </div>
 
 
-                                <div class="col-6">
+                                <div class="col-6" style="    text-align: start;font-size: 15px;">
+                                    <label for="" style=""> Email</label>
                                     <div class="form-group">
                                         <input class="form-control" value="{{Auth::user()->email}}" type="text" name="firstname" required
                                             placeholder="Email">
                                     </div>
                                 </div>
 
-                                <div class="col-6">
+                                <div class="col-6" style="    text-align: start;font-size: 15px;">
+                                    <label for="" style=""> Address</label>
                                     <div class="form-group">
                                         <input class="form-control" value="{{Auth::user()->address}}" type="text" name="firstname" required
                                             placeholder="Address">
                                     </div>
                                 </div>
 
-                                <div class="col-6">
+                                <div class="col-6" style="    text-align: start;font-size: 15px;">
+                                    <label for="" style=""> Signature</label>
                                     <div class="form-group">
                                         <input class="form-control" value="{{Auth::user()->signature}}" type="text" name="firstname" required
                                             placeholder="Signature">
                                     </div>
                                 </div>
 
-                                <div class="col-6">
+                                <div class="col-6" style="    text-align: start;font-size: 15px;">
+                                    <label for="" style=""> Date of Birth</label>
+
                                     <div class="form-group">
                                         <input class="form-control" value="{{Auth::user()->dob}}" type="date" name="firstname" required
                                             placeholder="Date of birth">
                                     </div>
                                 </div>
+
+                                <div class="col-12" style="text-align: end">
+                                    <div class="form-group" style="    display: flex;">
+                                        <input class="form-control" value="{{Auth::user()->apiUrl}}" type="text" id="myInput" name=""
+                                            placeholder="Date of birth">
+                                            <button style="    background: none;border: none;font-size: 20px;margin-left: -35px;">                                            <i   onclick="myFunction()"class="fa fa-copy"></i>
+                                            </button>
+                                    </div>
+                                </div>
+
+                                <div class="col-6" style="    text-align: start;font-size: 15px;">
+                                    <label for="" style=""> Status</label>
+                                    <div class="form-group">
+                                        <input class="form-control" readonly value="{{Auth::user()->statuss}}" type="text" name=""
+                                            placeholder="Date of birth">
+
+
+                                    </div>
+                                </div>
+
+
+
+
+
+
+
                             </div>
                             <a href="{{url('admin/generate-pdf',Auth::user()->id)}}" class="btn btn-info "> Download Document </a>
 
@@ -104,4 +137,20 @@
         <!-- ########## END: MAIN PANEL ########## -->
 
 
+        <script>
+            function myFunction() {
+  /* Get the text field */
+  var copyText = document.getElementById("myInput");
+
+  /* Select the text field */
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+   /* Copy the text inside the text field */
+  navigator.clipboard.writeText(copyText.value);
+
+  /* Alert the copied text */
+  alert("Copied the text: " + copyText.value);
+}
+        </script>
     @endsection

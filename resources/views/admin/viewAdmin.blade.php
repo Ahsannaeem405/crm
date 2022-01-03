@@ -15,7 +15,7 @@
 
     <?php
 
-    $view = App\Models\User::all();
+    $view = App\Models\User::where('role','admin')->get();
 
     ?>
 

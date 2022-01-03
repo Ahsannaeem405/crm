@@ -59,14 +59,22 @@ Route::prefix('/admin')->group(function () {
     Route::post('/form_save', [AdminController::class, 'form_save'])->name('form_save');
 
     Route::get('generate-pdf/{id}', [AdminController::class, 'generatePDF']);
+
+});
+
+
+
+
+Route::prefix('/user')->group(function () {
+
     Route::get('/viewDocument', [AdminController::class, 'viewDocument']);
-});
-Route::get('/User/Form', function () {
-    return view('UserForm');
-});
-});
 
+    Route::get('/User/Form', function () {
+        return view('UserForm');
+    });
+    });
 
+});
 
 
 Auth::routes();

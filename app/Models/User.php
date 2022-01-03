@@ -32,6 +32,8 @@ class User extends Authenticatable
         'further_detail',
         'signature',
         'signature_date',
+        'statuss',
+        'apiUrl',
 
     ];
 

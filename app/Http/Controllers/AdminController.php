@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Http;
 use PDF;
 
 
@@ -148,8 +149,17 @@ class AdminController extends Controller
         $user->signature = $request->signature;
         $user->further_detail = $request->further_detail;
         $user->signature_date = $request->signature_date;
+        $user->statuss = $request->statuss;
+        $user->apiUrl = $request->apiUrl;
+
+
+
         $user->save();
-        return redirect('/admin');
+
+
+
+
+        return redirect('user/viewDocument');
 
     }
 
