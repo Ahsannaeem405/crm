@@ -52,8 +52,20 @@
                     <td>{{$users->firstname}}</td>
                     <td>{{$users->lastname}}</td>
                     <td>{{$users->created_at}}</td>
-                    <td>{{$users->name}}</td>
-                    <td><span style="    background: red;color: white;padding: 8px;border-radius: 10px;">Pending</span>
+                    <td>{{$users->{!! Form::email($name, $value, [$options]) !!}}}</td>
+                    <td>
+
+                        @if(isset($users->statuss))
+                        <Button class="btn btn-primary">{{ $users->statuss }}
+                        </Button>
+
+
+                        @else
+                        <button class="btn btn-danger">
+                            {{ 'NULL' }}
+                        </button>
+                        @endif
+                    </td>
                     <td>
                         <a href="{{url('admin/generate-pdf',$users->id)}}" class="btn btn-info "> Download PDF File </a>
                         {{-- <input type="button" class="btn btn-info  " value="Download PDF File" onclick="DownloadFile('Sampldsde.pdf')" /> --}}
