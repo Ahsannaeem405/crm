@@ -52,7 +52,7 @@
                     <td>{{$users->firstname}}</td>
                     <td>{{$users->lastname}}</td>
                     <td>{{$users->created_at}}</td>
-                    <td>{{$users->{!! Form::email($name, $value, [$options]) !!}}}</td>
+                    <td>{{$users->email}}</td>
                     <td>
 
                         @if(isset($users->statuss))
