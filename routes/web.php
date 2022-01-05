@@ -61,7 +61,7 @@ Route::prefix('/admin')->group(function () {
     Route::get('/viewAdmin', function () {
         return view('admin.viewAdmin');
     });
-    Route::get('/viewUser', function () {
+    Route::get('/reporting', function () {
         return view('admin.viewUser');
     });
     Route::get('/userDocument', function () {
@@ -110,4 +110,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/myfile', function () {
     return view('myFile');
+});
+Route::get('/testdata', function () {
+    return view('testdata');
 });

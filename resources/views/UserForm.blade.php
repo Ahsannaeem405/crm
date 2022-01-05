@@ -6,17 +6,38 @@
     <?php
 
     $fields = [
+        // 'country' => 'AUS',
+        // 'firstName' => Auth::user()->name,
+        // 'middleName' => 'ok',
+        // 'lastName' => Auth::user()->lastname,
+        // 'gender' => 'male',
+        // 'dateOfBirth' => '20/10/1980',
+        // 'address' => Auth::user()->address,
+        // 'email' => Auth::user()->email,
+
         'country' => 'AUS',
         'firstName' => Auth::user()->name,
         'middleName' => 'ok',
         'lastName' => Auth::user()->lastname,
         'gender' => 'male',
         'dateOfBirth' => '20/10/1980',
-        'address' => Auth::user()->address,
-        'email' => Auth::user()->email,
+		"unitNumber"=> "1",
+		"streetNumber"=> "95",
+		"streetName"=> "Lennox",
+        'streetName' => Auth::user()->address,
+		"streetType"=> "Street",
+		"suburb"=> "CASINO",
+		"postcode"=> "2470",
+		"state"=> "NSW",
+		'email' => Auth::user()->email,
+
+
     ];
 
     $get = Http::post('https://dev.bronid.com/idform', [
+
+
+
         'metadata_serviceUid' => 'XL7ULiU6B4QE9Y2iWFZnhtMDKFN2',
         'metadata_secretKey' => 'api_sec_NJAtNcRtUrPlf7xYDrMNP9URI-ZfN314',
         'metadata_version' => '4',
@@ -27,7 +48,6 @@
     ]);
     $res = json_decode($get->body());
 
-
     ?>
     {{-- @dd(  $res->bronLink) --}}
 
@@ -36,9 +56,7 @@
     <div class="content">
         <div class="container">
             <div class="row justify-content-center">
-                <!-- <div class="col-md-6 order-md-2">
-                                      <img src="images/undraw_file_sync_ot38.svg" alt="Image" class="img-fluid">
-                                    </div> -->
+
                 <div class="col-md-12 contents">
                     <div class="row justify-content-center">
                         <div class="col-md-10">
@@ -46,8 +64,8 @@
                                 <form action="{{ url('admin/form_save') }}" method="post">
                                     @csrf
 
-                                    <input type="hidden" name="statuss" value="{{$res->status}}" id="">
-                                    <input type="hidden" name="apiUrl" value="{{$res->bronLink}}" id="">
+                                    <input type="hidden" name="statuss" value="{{ $res->status }}" id="">
+                                    <input type="hidden" name="apiUrl" value="{{ $res->bronLink }}" id="">
 
                                     <div class="mb-4">
                                         <div class="col-12" style="border: 2px solid black; padding:0px;">
@@ -86,13 +104,11 @@
 
                                             <div class="row">
                                                 <div class="col-6" style="    margin-top: 9px;">
-
-
                                                 </div>
                                                 <div class="col-2" style="    margin-top: 9px;">
                                                     <P style="color: black;     font-weight: 500;">
-                                                            <input type="text" required style="width: 100%;    border: none;" placeholder="State" name="state" id="">
-
+                                                        <input type="text" required style="width: 100%;    border: none;"
+                                                            placeholder="State" name="state" id="">
 
                                                     </P>
 
@@ -100,13 +116,10 @@
                                                 </div>
                                                 <div class="col-2" style="    margin-top: 9px;">
                                                     <P style="color: black;     font-weight: 500;">
-                                                        <input type="text" required style="width: 100%;    border: none;" placeholder="Postcode" name="postcode" id="">
-
-                                                        </P>
-
-
+                                                        <input type="text" required style="width: 100%;    border: none;"
+                                                            placeholder="Postcode" name="postcode" id="">
+                                                    </P>
                                                 </div>
-
 
                                             </div>
 

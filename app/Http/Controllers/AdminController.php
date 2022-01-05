@@ -155,7 +155,7 @@ class AdminController extends Controller
         $user->signature = $request->signature;
         $user->further_detail = $request->further_detail;
         $user->signature_date = $request->signature_date;
-        $user->statuss = $request->statuss;
+        $user->statuss = 'Unverified';
         $user->apiUrl = $request->apiUrl;
         $user->state = $request->state;
         $user->postcode = $request->postcode;

@@ -1,5 +1,7 @@
 @extends('admin.layouts.default')
 @section('content')
+<link href="{{asset('/lib/datatables/jquery.dataTables.css')}}" rel="stylesheet">
+
 <style>
     .br-pagebody {
     margin-top: 83px;
@@ -79,9 +81,9 @@ $i = 1;
       @include('admin.layouts.footer')
       </div><!-- br-mainpanel -->
     <!-- ########## END: MAIN PANEL ########## -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src = "http://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js" defer ></script>
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="{{asset('/lib/datatables/jquery.dataTables.js')}}"></script>
+    <script src="{{asset('/lib/datatables-responsive/dataTables.responsive.js')}}"></script>
     <script>
         $(function(){
           'use strict';

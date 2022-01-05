@@ -29,12 +29,7 @@
                     <span class="menu-item-label">View Admin</span>
                 </div><!-- menu-item -->
             </a><!-- br-menu-link -->
-            <a href="{{ url('/admin/viewUser') }}" class="br-menu-link">
-                <div class="br-menu-item">
-                    <i class="menu-item-icon icon ion-ios-email-outline tx-24"></i>
-                    <span class="menu-item-label">User Details</span>
-                </div><!-- menu-item -->
-            </a><!-- br-menu-link -->
+
 
             <a href="{{ url('/admin/userDocument') }}" class="br-menu-link">
                 <div class="br-menu-item">
@@ -43,7 +38,12 @@
                 </div><!-- menu-item -->
             </a><!-- br-menu-link -->
 
-
+            <a href="{{ url('/admin/reporting') }}" class="br-menu-link">
+                <div class="br-menu-item">
+                    <i class="menu-item-icon icon ion-ios-email-outline tx-24"></i>
+                    <span class="menu-item-label">Reporting</span>
+                </div><!-- menu-item -->
+            </a><!-- br-menu-link -->
 
             <br>
         </div><!-- br-sideleft -->

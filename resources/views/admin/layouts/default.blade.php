@@ -36,7 +36,7 @@
     <link href="../lib/Ionicons/css/ionicons.css" rel="stylesheet">
 
     <link href="{{asset('/lib/highlightjs/github.css')}}" rel="stylesheet">
-    <link href="{{asset('/lib/datatables/jquery.dataTables.css')}}" rel="stylesheet">
+    {{-- <link href="{{asset('/lib/datatables/jquery.dataTables.css')}}" rel="stylesheet"> --}}
     <link href="{{asset('/lib/select2/css/select2.min.css')}}" rel="stylesheet">
     {{-- <link href="{{asset('/lib/Ionicons/css/ionicons.css" rel="stylesheet')}}"> --}}
     <link href="{{asset('/lib/perfect-scrollbar/css/perfect-scrollbar.css')}}" rel="stylesheet">
@@ -49,22 +49,26 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+
+
+
+
   </head>
 
   <body>
 
 @yield('content')
+{{--
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="{{asset('/lib/datatables/jquery.dataTables.js')}}"></script>
+<script src="{{asset('/lib/datatables-responsive/dataTables.responsive.js')}}"></script> --}}
 
 
 <script src="{{asset('/lib/highlightjs/highlight.pack.js')}}"></script>
-<script src="{{asset('/lib/datatables/jquery.dataTables.js')}}"></script>
-<script src="{{asset('/lib/datatables-responsive/dataTables.responsive.js')}}"></script>
+
 <script src="{{asset('/lib/select2/js/select2.min.js')}}"></script>
 
-
-
-
-    <script src="{{asset('/lib/jquery/jquery.js')}}"></script>
+    {{-- <script src="{{asset('/lib/jquery/jquery.js')}}"></script> --}}
     <script src="{{asset('/lib/popper.js/popper.js')}}"></script>
     <script src="{{asset('/lib/bootstrap/bootstrap.js')}}"></script>
     <script src="{{asset('/lib/perfect-scrollbar/js/perfect-scrollbar.jquery.js')}}"></script>
@@ -81,15 +85,17 @@
     <script src="{{asset('/js/bracket.js')}}"></script>
     <script src="{{asset('/js/ResizeSensor.js')}}"></script>
     <script src="{{asset('/js/dashboard.js')}}"></script>
+    <script src="{{asset('/js/widgets.js')}}"></script>
+
+    <script src="{{asset('/lib/chart.js/Chart.js')}}"></script>
+
+    {{-- <script src="{{asset('/js/chart.chartjs.js')}}"></script> --}}
+    {{-- <script src="{{asset('/js/chart.chartist.js')}}"></script> --}}
+
     <script>
       $(function(){
         'use strict'
 
-        // FOR DEMO ONLY
-        // menu collapsed by default during first page load or refresh with screen
-        // having a size between 992px and 1299px. This is intended on this page only
-        // for better viewing of widgets demo.
-        $(window).resize(function(){
           minimizeMenu();
         });
 
