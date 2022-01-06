@@ -48,9 +48,13 @@ Route::get('/', function () {
 });
 
 
-Route::group(['middleware' => 'auth'], function () {
 
-Route::prefix('/admin')->group(function () {
+Route:: prefix('/admin')->middleware(['auth', 'admin'])->group(function () {
+
+
+// Route::group(['middleware' => 'auth'], function () {
+
+// Route::prefix('/admin')->group(function () {
     Route::get('/', function () {
         return view('admin.index');
     });
@@ -79,16 +83,19 @@ Route::prefix('/admin')->group(function () {
     Route::get('/edit/{id}', [AdminController::class, 'edit'])->name('edit');
     Route::post('/update', [AdminController::class, 'update'])->name('update');
 
-    Route::post('/form_save', [AdminController::class, 'form_save'])->name('form_save');
 
-    Route::get('generate-pdf/{id}', [AdminController::class, 'generatePDF']);
 
 });
 
 
+// Route::group(['middleware' => 'auth'], function () {
+
+     Route:: prefix('/user')->middleware(['auth', 'user'])->group(function () {
+        Route::get('generate-pdf/{id}', [AdminController::class, 'generatePDF']);
 
 
-Route::prefix('/user')->group(function () {
+// Route::prefix('/user')->group(function () {
+    Route::post('/form_save', [AdminController::class, 'form_save'])->name('form_save');
 
 
     Route::get('/edit_profile', function () {
@@ -97,10 +104,17 @@ Route::prefix('/user')->group(function () {
 
     Route::get('/viewDocument', [AdminController::class, 'viewDocument']);
 
-    Route::get('/user/form', function () {
+    Route::get('/form', function () {
         return view('UserForm');
     });
-    });
+    // });
+
+    Route::get('/api_response', [AdminController::class, 'api_response']);
+
+
+
+
+
 
 });
 

@@ -33,6 +33,8 @@ class CreateUsersTable extends Migration
 
             $table->string('postcode')->nullable();
 
+            $table->string('verificationUuid')->nullable();
+
 
 
             $table->string('role')->nullable();

@@ -21,7 +21,7 @@
 
     <table  style=" width: 100%;">
         <tr>
-          <td style="        width: 65%;">
+          <td style="width: 65%;">
             <p class="alignleft" style="display: inline-block;width: 100%;"><label for="">Full Name </label> <br> <input style="   font-size:13px;   width: 91%;" value="{{$fullname}}" type="text" value=""> </p>
           </td>
 

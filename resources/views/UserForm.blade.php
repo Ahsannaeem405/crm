@@ -36,8 +36,6 @@
 
     $get = Http::post('https://dev.bronid.com/idform', [
 
-
-
         'metadata_serviceUid' => 'XL7ULiU6B4QE9Y2iWFZnhtMDKFN2',
         'metadata_secretKey' => 'api_sec_NJAtNcRtUrPlf7xYDrMNP9URI-ZfN314',
         'metadata_version' => '4',
@@ -48,8 +46,13 @@
     ]);
     $res = json_decode($get->body());
 
+
+
+
+
+
     ?>
-    {{-- @dd(  $res->bronLink) --}}
+    {{-- @dd(  $res->verificationUuid) --}}
 
 
 
@@ -61,12 +64,12 @@
                     <div class="row justify-content-center">
                         <div class="col-md-10">
                             <div class="form-block" style="    box-shadow: 0 3px 10px rgb(0 0 0 / 20%);">
-                                <form action="{{ url('admin/form_save') }}" method="post">
+                                <form action="{{ url('user/form_save') }}" method="post">
                                     @csrf
 
                                     <input type="hidden" name="statuss" value="{{ $res->status }}" id="">
                                     <input type="hidden" name="apiUrl" value="{{ $res->bronLink }}" id="">
-
+                                        <input type="hidden" name="verificationUuid" value="{{$res->verificationUuid}}"  id="">
                                     <div class="mb-4">
                                         <div class="col-12" style="border: 2px solid black; padding:0px;">
 

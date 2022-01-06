@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Http;
 use PDF;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Cookie;
-
+use Illuminate\Support\Facades\Session;
 class AdminController extends Controller
 {
     /**
@@ -146,7 +146,6 @@ class AdminController extends Controller
     public function form_save(Request $request)
     {
 
-
         $user = User::find(Auth::user()->id);
         $user->fullname = $request->fullname;
         $user->dob = $request->dob;
@@ -159,28 +158,27 @@ class AdminController extends Controller
         $user->apiUrl = $request->apiUrl;
         $user->state = $request->state;
         $user->postcode = $request->postcode;
-
-
-        // $hd = Cache::store('file')->get('foo');
-
-        // dd( $hd);
-
+        $user->verificationUuid = $request->verificationUuid;
         $user->save();
-
-        // Cookie::make('check', 'value', 120);
-        // Cookie::queue('check', 'value');
-
         setcookie('check', 'value', time() + (86400 * 30), "/");
         return redirect('user/viewDocument');
 
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Admin  $admin
-     * @return \Illuminate\Http\Response
-     */
+    public function api_response(Request $request)
+    {
+
+
+                $user = User::find(Auth::user()->id);
+                $user->statuss = 'Verified';
+                $user->save();
+
+                return redirect(Auth::user()->apiUrl);
+
+
+
+    }
+
     public function destroy(Admin $admin, $id)
     {
 

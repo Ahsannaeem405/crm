@@ -36,6 +36,8 @@ class User extends Authenticatable
         'apiUrl',
         'postcode',
         'state',
+        'verificationUuid',
+
 
 
 
