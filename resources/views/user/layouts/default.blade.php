@@ -26,7 +26,7 @@
 
 
 
-    <title>Login</title>
+    <title></title>
   </head>
   <body style="background-color: #582b74">
 
